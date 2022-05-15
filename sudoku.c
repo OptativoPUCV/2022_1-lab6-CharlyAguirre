@@ -85,7 +85,7 @@ int is_valid(Node* n)
     {
       if(validColum[n->sudo[j][i]] != 0) return 0;
 
-      if(validColum[n->sudo[j][i]] == 0 && n->sudo[j]ij] != 0)
+      if(validColum[n->sudo[j][i]] == 0 && n->sudo[j][i] != 0)
       {
         validColum[n->sudo[j][i]] = 1;
       }
