@@ -130,8 +130,6 @@ List* get_adj_nodes(Node* n)
       }
     }
   }
-  aux = get_size(list);
-  printf("%d", aux);
   
   return list;
 }
