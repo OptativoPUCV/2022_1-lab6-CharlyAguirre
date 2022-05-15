@@ -73,7 +73,7 @@ int is_valid(Node* n)
     }
   }
 
-  for(int i = 0 ; i < 0 ; i++)
+  for(int i = 0 ; i < 9 ; i++)
   {
     int validColum[10];
     for(k = 0 ; k < 10 ; k++)
