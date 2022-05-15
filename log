@@ -226,3 +226,14 @@ Sun May 15 20:24:55 UTC 2022:
  1 file changed, 3 insertions(+), 2 deletions(-)
  tests:  0|0
 d86fbe9
+Sun May 15 20:25:43 UTC 2022: 
+ sudoku.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:0:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:126:14: error: unused variable ‘aux’ [-Werror=unused-variable]
+   int i,j,k, aux;
+              ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+93ed282

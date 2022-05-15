@@ -135,8 +135,7 @@ List* get_adj_nodes(Node* n)
         {
           Node *adjNode = copy(n);
           adjNode->sudo[i][j] = k;
-          aux = is_valid(adjNode);
-          if(aux == 1) pushBack(list,adjNode);
+          pushBack(list,adjNode);
         }
       }
     }
