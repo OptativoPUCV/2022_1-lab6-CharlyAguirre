@@ -158,6 +158,8 @@ int is_final(Node* n)
       if(n->sudo[i][j] == 0) return 0;
     }
   }
+  print_node(n);
+  
   return 1;
 }
 
@@ -172,7 +174,7 @@ Node* DFS(Node* initial, int* cont)
     Node * auxNode = top(S);
     pop(S);
 
-    if(is_final(auxNode) == 1)return auxNode;
+    if(is_final(auxNode) == 1) return auxNode;
     
     List *listAdjNode = get_adj_nodes(auxNode);
 
