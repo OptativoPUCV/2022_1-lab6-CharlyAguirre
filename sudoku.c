@@ -52,7 +52,23 @@ void print_node(Node* n)
 
 int is_valid(Node* n)
 {
-  
+  int i,j,b,v,p;
+  short numbBusca;
+  b = 0; v = 0;
+
+  while(b < 9 || v < 9)
+  {
+    numbBusca = n->sudo[b][v];
+    if(b == v)
+    {
+      for(p=0;p<9;p++)
+      {
+        int i=3*(b/3) + (p/3) ;
+        int j=3*(b%3) + (p%3) ;
+        if(numbBusca == n->sudo[i][j]) return 0;
+      }
+    }
+  }
 
   return 1;
 }
