@@ -96,3 +96,14 @@ Sun May 15 19:01:00 UTC 2022:
  tests:  7|2
 total_score: 50/70
 cf7ab29
+Sun May 15 19:10:09 UTC 2022: 
+ sudoku.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+In file included from test.c:5:0:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:111:13: error: unused variable ‘aux’ [-Werror=unused-variable]
+   int i,j,k,aux;
+             ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+0d2f209
