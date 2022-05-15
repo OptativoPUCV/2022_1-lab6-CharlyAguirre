@@ -70,7 +70,11 @@ int is_valid(Node* n)
 
   for(int i = 0 ; i < 0 ; i++)
   {
-    int validColum[10] = {0};
+    int validColum[10];
+    for(k = 0 ; k < 10 ; k++)
+    {
+      validColum[k] = 0;
+    }
     for(int j = 0 ; j < 9 ; j++)
     {
       if(validColum[n->sudo[j][i]] != 0) return 0;
