@@ -123,7 +123,7 @@ List* get_adj_nodes(Node* n)
 {
   List* list=createList();
 
-  int i,j,k;
+  int i,j,k, aux;
 
   for(i = 0 ; i < 9 ; i++)
   {
@@ -135,7 +135,8 @@ List* get_adj_nodes(Node* n)
         {
           Node *adjNode = copy(n);
           adjNode->sudo[i][j] = k;
-          pushBack(list,adjNode);
+          aux = is_valid(adjNode);
+          if(aux == 1) pushBack(list,adjNode);
         }
       }
     }
