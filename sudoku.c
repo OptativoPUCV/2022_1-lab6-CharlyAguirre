@@ -123,7 +123,7 @@ List* get_adj_nodes(Node* n)
 {
   List* list=createList();
 
-  int i,j,k, aux;
+  int i,j,k;
 
   for(i = 0 ; i < 9 ; i++)
   {
