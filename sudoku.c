@@ -52,33 +52,53 @@ void print_node(Node* n)
 
 int is_valid(Node* n)
 {
-  int i,j,b,v,p;
-  short numbBusca;
-  b = 0; v = 0;
+  /*int i,j,b,v,p,cont;
+  short numbBusca;*/
 
-  while(b < 9 || v < 9)
+  for(int i = 0; i < 9 ; i++)
   {
-    numbBusca = n->sudo[b][v];
-    if(n->sudo[b][v] == 0 )
+    int validRow[10] = {0};
+    for(int j = 0 ; j < 9 ; j++)
     {
-      b++;
-      if(b == 9)
+      if(validRow[n->sudo[i][j]] != 0) return 0;
+
+      if(validRow[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
       {
-        b = 0;
-        v++;
-        if(v == 9) return 1;
+        validRow[n->sudo[i][j]] = 1;
       }
     }
-    
-    for(p=0;p<9;p++)
+  }
+
+  for(int i = 0 ; i < 0 ; i++)
+  {
+    int validColum[10] = {0};
+    for(int j = 0 ; j < 9 ; j++)
     {
-      i=3*(b/3) + (p/3) ;
-      j=3*(v%3) + (p%3) ;
-      if(numbBusca == n->sudo[i][j]) return 0;
-      printf("%d ",n->sudo[i][j]);
-      if(p%3 == 2) printf("\n");
+      if(validColum[n->sudo[i][j]] != 0) return 0;
+
+      if(validColum[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
+      {
+        validColum[n->sudo[i][j]] = 1;
+      }
     }
-    
+  }
+
+  for(int s = 0 ; s < 9 ; s++)
+  {
+    int validMatix[10] = {0};
+    int k = s,p;
+    for(p = 0 ; p < 9 ; p++)
+    {
+      int i=3*(k/3) + (p/3) ;
+      int j=3*(k%3) + (p%3) ;
+      
+      if(validMatix[n->sudo[i][j]] != 0) return 0;
+
+      if(validMatix[n->sudo[i][j]] != 0 && n->sudo[i][j] != 0)
+      {
+        validMatix[n->sudo[i][j]] = 1;
+      }
+    }
   }
 
   return 1;
