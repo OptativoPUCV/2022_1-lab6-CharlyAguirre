@@ -113,8 +113,6 @@ int is_valid(Node* n)
       }
     }
   }
-
-  print_node(n);
   
   return 1;
 }
