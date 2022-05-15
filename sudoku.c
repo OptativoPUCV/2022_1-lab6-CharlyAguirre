@@ -122,7 +122,7 @@ List* get_adj_nodes(Node* n)
           adyNode->sudo[i][j] = k;
           if(is_valid(adyNode) == 1)
           {
-            pushBack(list , adyNode);
+            pushBack(list,adyNode);
           }
         }
       }
@@ -147,6 +147,29 @@ int is_final(Node* n)
 
 Node* DFS(Node* initial, int* cont)
 {
+  Stack *S = createStack();
+
+  push(S,initial);
+
+  while(get_size(S) != 0)
+  {
+    Node * auxNode = top(S);
+    pop(S);
+
+    if(is_final(auxNode) == 1) return auxNode;
+
+    List *listAdjNode = get_adj_nodes(auxNode);
+
+    Node *auxNode2 = first(listAdjNode);
+
+    while(auxNode2 != NULL)
+    {
+      push(S,auxNode2);
+      auxNode2 = next(listAdjNode);
+    }
+    cont++;
+  }
+  
   return NULL;
 }
 
