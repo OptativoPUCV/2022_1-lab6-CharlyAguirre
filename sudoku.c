@@ -158,10 +158,8 @@ Node* DFS(Node* initial, int* cont)
     Node * auxNode = top(S);
     pop(S);
 
-    if(is_final(auxNode) == 1)
-    {
-      if(is_valid(auxNode) == 1) return auxNode;
-    }
+    if(is_final(auxNode) == 1)return auxNode;
+    
     List *listAdjNode = get_adj_nodes(auxNode);
 
     Node *auxNode2 = first(listAdjNode);
