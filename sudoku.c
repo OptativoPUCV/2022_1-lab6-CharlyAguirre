@@ -158,8 +158,21 @@ Node* DFS(Node* initial, int* cont)
     Node * auxNode = top(S);
     pop(S);
 
-    if(is_final(auxNode) == 1) return auxNode;
-
+    if(is_final(auxNode) == 1)
+    {
+      for(int i = 0 ; i < 9 ; i++)
+      {
+        for(int j = 0 ; j < 9 ; j++)
+        {
+          printf("%d", auxNode->sudo[i][j]);
+          if(j == 8) 
+          {
+            printf("\n");
+          }
+        }
+      }
+      return auxNode;
+    }
     List *listAdjNode = get_adj_nodes(auxNode);
 
     Node *auxNode2 = first(listAdjNode);
