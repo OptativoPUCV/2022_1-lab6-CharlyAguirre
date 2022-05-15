@@ -63,8 +63,8 @@ int is_valid(Node* n)
     {
       for(p=0;p<9;p++)
       {
-        int i=3*(b/3) + (p/3) ;
-        int j=3*(b%3) + (p%3) ;
+        i=3*(b/3) + (p/3) ;
+        j=3*(b%3) + (p%3) ;
         if(numbBusca == n->sudo[i][j]) return 0;
       }
     }
