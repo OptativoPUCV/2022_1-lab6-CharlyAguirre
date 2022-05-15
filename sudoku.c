@@ -53,8 +53,7 @@ void print_node(Node* n)
 int is_valid(Node* n)
 {
   int i,j,c,p,k;
-
-  print_node(n);
+  
   for(i = 0; i < 9 ; i++)
   {
     int validFila[10];
@@ -86,7 +85,7 @@ int is_valid(Node* n)
     {
       if(validColum[n->sudo[j][i]] != 0) return 0;
 
-      if(validColum[n->sudo[j][i]] == 0 && n->sudo[i][j] != 0)
+      if(validColum[n->sudo[j][i]] == 0 && n->sudo[j]ij] != 0)
       {
         validColum[n->sudo[j][i]] = 1;
       }

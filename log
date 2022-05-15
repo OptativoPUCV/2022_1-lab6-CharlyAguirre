@@ -191,3 +191,27 @@ Sun May 15 20:14:10 UTC 2022:
  tests:  3|3
 total_score: 25/70
 ca1d227
+Sun May 15 20:15:19 UTC 2022: 
+ sudoku.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:0:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:88:54: error: expected ‘)’ before ‘ij’
+       if(validColum[n->sudo[j][i]] == 0 && n->sudo[j]ij] != 0)
+                                                      ^~
+sudoku.c:88:56: error: expected statement before ‘]’ token
+       if(validColum[n->sudo[j][i]] == 0 && n->sudo[j]ij] != 0)
+                                                        ^
+sudoku.c:88:7: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+       if(validColum[n->sudo[j][i]] == 0 && n->sudo[j]ij] != 0)
+       ^~
+sudoku.c:88:58: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+       if(validColum[n->sudo[j][i]] == 0 && n->sudo[j]ij] != 0)
+                                                          ^~
+sudoku.c:88:58: error: expected expression before ‘!=’ token
+sudoku.c:88:62: error: expected statement before ‘)’ token
+       if(validColum[n->sudo[j][i]] == 0 && n->sudo[j]ij] != 0)
+                                                              ^
+cc1: all warnings being treated as errors
+Compilation failed
+7364c77
