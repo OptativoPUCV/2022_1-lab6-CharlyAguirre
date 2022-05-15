@@ -59,15 +59,26 @@ int is_valid(Node* n)
   while(b < 9 || v < 9)
   {
     numbBusca = n->sudo[b][v];
-    if(b == v)
+    if(n->sudo[b][v] == 0 )
     {
-      for(p=0;p<9;p++)
+      b++;
+      if(b == 9)
       {
-        i=3*(b/3) + (p/3) ;
-        j=3*(b%3) + (p%3) ;
-        if(numbBusca == n->sudo[i][j]) return 0;
+        b = 0;
+        v++;
+        if(v == 9) return 1;
       }
     }
+    
+    for(p=0;p<9;p++)
+    {
+      i=3*(b/3) + (p/3) ;
+      j=3*(v%3) + (p%3) ;
+      if(numbBusca == n->sudo[i][j]) return 0;
+      printf("%d ",n->sudo[i][j]);
+      if(p%3 == 2) printf("\n");
+    }
+    
   }
 
   return 1;
