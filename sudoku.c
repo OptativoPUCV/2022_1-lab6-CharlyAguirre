@@ -118,11 +118,11 @@ List* get_adj_nodes(Node* n)
       {
         for(k = 1 ; k < 10 ; k++)
         {
-          Node *adyNode = copy(n);
-          adyNode->sudo[i][j] = k;
-          if(is_valid(adyNode) == 1)
+          Node *adjNode = copy(n);
+          adjNode->sudo[i][j] = k;
+          if(is_valid(adjNode) == 1)
           {
-            pushBack(list,adyNode);
+            pushBack(list,adjNode);
           }
         }
       }
