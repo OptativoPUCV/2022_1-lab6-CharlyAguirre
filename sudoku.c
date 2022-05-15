@@ -54,52 +54,14 @@ int is_valid(Node* n)
 {
   for(int i = 0 ; i < 9 ; i++)
   {
-    int validFilas[10] = {0};
-
+    int filaValid[10] = {0};
     for(int j = 0 ; j < 9 ; j++)
     {
-      if(validFilas[n->sudo[i][j]] != 0) return 0;
+      if(filaValid[j+1] != 0) return 0;
 
-      if(validFilas[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
-      {
-        validFilas[n->sudo[i][j]] = 1;
-      }
+      if(filaValid[j+1] == )
     }
-  }
-
-  for(int i = 0 ; i < 9 ; i++)
-  {
-    int validColum[10] = {0};
-
-    for(int j = 0 ; j < 9 ; j++)
-    {
-      if(validColum[n->sudo[j][i]] != 0) return 0;
-
-      if(validColum[n->sudo[j][i]] == 0 && n->sudo[j][i] != 0)
-      {
-        validColum[n->sudo[j][i]] = 1;
-      }
-    }
-  }
-
-  for(int i = 0 ; i < 9 ; i++)
-  {
-    int validMatri[10] = {0};
-
-    int k = i;
     
-    for(int p = 0 ; p < 9 ; p++)
-    {
-      int i=3*(k/3) + (p/3) ;
-      int j=3*(k%3) + (p%3) ;
-
-      if(validMatri[n->sudo[i][j]] != 0) return 0;
-
-      if(validMatri[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
-      {
-        validMatri[n->sudo[i][j]] = 1;
-      }
-    }
   }
   
   return 1;
