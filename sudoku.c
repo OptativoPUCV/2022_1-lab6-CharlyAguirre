@@ -56,7 +56,12 @@ int is_valid(Node* n)
 
   for(i = 0; i < 9 ; i++)
   {
-    int validFila[10] = {0};
+    int validFila[10];
+    for(k = 0 ; k < 10 ; k++)
+    {
+      validFila[k] = 0;
+    }
+    
     for( j = 0 ; j < 9 ; j++)
     {
       if(validFila[n->sudo[i][j]] != 0) return 0;
@@ -88,7 +93,12 @@ int is_valid(Node* n)
 
   for(c = 0 ; c < 9 ; c++)
   {
-    int validMatri[10] = {0};
+    int validMatri[10];
+    for(k = 0 ; k < 10 ; k++)
+    {
+      validMatri[k] = 0;
+    }
+    
     k = c;
     for(p = 0 ; p < 9 ; p++)
     {
