@@ -124,11 +124,14 @@ List* get_adj_nodes(Node* n)
           if(aux == 1)
           {
             pushBack(list,adjNode);
+            
           }
         }
       }
     }
   }
+  aux = get_size(list);
+  printf("%d", aux);
   
   return list;
 }
