@@ -167,9 +167,9 @@ Node* DFS(Node* initial, int* cont)
       push(S,auxNode2);
       auxNode2 = next(listAdjNode);
     }
+    free(auxNode);
     cont++;
   }
-  
   return NULL;
 }
 
