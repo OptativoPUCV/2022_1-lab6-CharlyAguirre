@@ -52,19 +52,18 @@ void print_node(Node* n)
 
 int is_valid(Node* n)
 {
-  /*int i,j,b,v,p,cont;
-  short numbBusca;*/
+  int i,j,c,p,k;
 
-  for(int i = 0; i < 9 ; i++)
+  for(i = 0; i < 9 ; i++)
   {
-    int validRow[10] = {0};
-    for(int j = 0 ; j < 9 ; j++)
+    int validFila[10] = {0};
+    for( j = 0 ; j < 9 ; j++)
     {
-      if(validRow[n->sudo[i][j]] != 0) return 0;
+      if(validFila[n->sudo[i][j]] != 0) return 0;
 
-      if(validRow[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
+      if(validFila[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
       {
-        validRow[n->sudo[i][j]] = 1;
+        validFila[n->sudo[i][j]] = 1;
       }
     }
   }
@@ -74,29 +73,29 @@ int is_valid(Node* n)
     int validColum[10] = {0};
     for(int j = 0 ; j < 9 ; j++)
     {
-      if(validColum[n->sudo[i][j]] != 0) return 0;
+      if(validColum[n->sudo[j][i]] != 0) return 0;
 
-      if(validColum[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
+      if(validColum[n->sudo[j][i]] == 0 && n->sudo[i][j] != 0)
       {
-        validColum[n->sudo[i][j]] = 1;
+        validColum[n->sudo[j][i]] = 1;
       }
     }
   }
 
-  for(int s = 0 ; s < 9 ; s++)
+  for(c = 0 ; c < 9 ; c++)
   {
-    int validMatix[10] = {0};
-    int k = s,p;
+    int validMatri[10] = {0};
+    k = c;
     for(p = 0 ; p < 9 ; p++)
     {
-      int i=3*(k/3) + (p/3) ;
-      int j=3*(k%3) + (p%3) ;
+      i=3*(k/3) + (p/3) ;
+      j=3*(k%3) + (p%3) ;
       
-      if(validMatix[n->sudo[i][j]] != 0) return 0;
+      if(validMatri[n->sudo[i][j]] != 0) return 0;
 
-      if(validMatix[n->sudo[i][j]] != 0 && n->sudo[i][j] != 0)
+      if(validMatri[n->sudo[i][j]] != 0 && n->sudo[i][j] != 0)
       {
-        validMatix[n->sudo[i][j]] = 1;
+        validMatri[n->sudo[i][j]] = 1;
       }
     }
   }
@@ -108,6 +107,24 @@ int is_valid(Node* n)
 List* get_adj_nodes(Node* n)
 {
   List* list=createList();
+
+  int i,j,k;
+
+  for(i = 0 ; i < 9 ; i++)
+  {
+    for(j = 0 ; j < 9 ; j++)
+    {
+      if(n->sudo[i][j] == 0)
+      {
+        for(k = 1 ; k < 10 ; k++)
+        {
+          Node *adyNode = copy(n);
+          adyNode->sudo[i][j] = k;
+          pushBack(list , adyNode);
+        }
+      }
+    }
+  }
   
   return list;
 }
