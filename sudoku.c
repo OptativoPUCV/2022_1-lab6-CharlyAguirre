@@ -52,35 +52,25 @@ void print_node(Node* n)
 
 int is_valid(Node* n)
 {
-  int i,j,c,p,k;
-  
-  for(i = 0; i < 9 ; i++)
+  for(int i = 0 ; i < 9 ; i++)
   {
-    int validFila[10];
-    for(k = 0 ; k < 10 ; k++)
-    {
-      validFila[k] = 0;
-    }
-    
-    for( j = 0 ; j < 9 ; j++)
-    {
-      if(validFila[n->sudo[i][j]] != 0) return 0;
+    int validFilas[10] = {0};
 
-      if(validFila[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
+    for(int j = 0 ; j < 9 ; j++)
+    {
+      if(validFilas[n->sudo[i][j]] != 0) return 0;
+
+      if(validFilas[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
       {
-        validFila[n->sudo[i][j]] = 1;
+        validFilas[n->sudo[i][j]] = 1;
       }
     }
   }
 
   for(int i = 0 ; i < 9 ; i++)
   {
-    int validColum[10];
-    for(k = 0 ; k < 10 ; k++)
-    {
-      validColum[k] = 0;
-    }
-    
+    int validColum[10] = {0};
+
     for(int j = 0 ; j < 9 ; j++)
     {
       if(validColum[n->sudo[j][i]] != 0) return 0;
@@ -92,23 +82,20 @@ int is_valid(Node* n)
     }
   }
 
-  for(c = 0 ; c < 9 ; c++)
+  for(int i = 0 ; i < 9 ; i++)
   {
-    int validMatri[10];
-    for(k = 0 ; k < 10 ; k++)
-    {
-      validMatri[k] = 0;
-    }
+    int validMatri[10] = {0};
+
+    int k = i;
     
-    k = c;
-    for(p = 0 ; p < 9 ; p++)
+    for(int p = 0 ; p < 9 ; p++)
     {
-      i=3*(k/3) + (p/3) ;
-      j=3*(k%3) + (p%3) ;
-      
+      int i=3*(k/3) + (p/3) ;
+      int j=3*(k%3) + (p%3) ;
+
       if(validMatri[n->sudo[i][j]] != 0) return 0;
 
-      if(validMatri[n->sudo[i][j]] != 0 && n->sudo[i][j] != 0)
+      if(validMatri[n->sudo[i][j]] == 0 && n->sudo[i][j] != 0)
       {
         validMatri[n->sudo[i][j]] = 1;
       }
@@ -184,7 +171,7 @@ Node* DFS(Node* initial, int* cont)
       auxNode2 = next(listAdjNode);
     }
     free(auxNode);
-    cont++;
+    (*cont)++;
   }
   return NULL;
 }
