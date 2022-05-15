@@ -153,7 +153,7 @@ Node* DFS(Node* initial, int* cont)
 
   push(S,initial);
 
-  if(initial != NULL) return NULL;
+  if(initial == NULL) return NULL;
 
   while(get_size(S) != 0)
   {
