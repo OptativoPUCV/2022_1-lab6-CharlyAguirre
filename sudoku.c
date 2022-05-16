@@ -110,7 +110,7 @@ List* get_adj_nodes(Node* n)
 {
   List* list=createList();
 
-  int i,j,k;
+  /*int i,j,k;
 
   for(i = 0 ; i < 9 ; i++)
   {
@@ -120,15 +120,46 @@ List* get_adj_nodes(Node* n)
       {
         for(k = 1 ; k < 10 ; k++)
         {
-          Node *adjNode = copy(n);
+          Node* adjNode = copy(n);
           adjNode->sudo[i][j] = k;
           pushBack(list,adjNode);
-          /*if(is_valid(adjNode))
+          if(is_valid(adjNode))
           {
             pushBack(list, adjNode);
-          } */
+          } 
         }
       }
+    }
+  }*/
+
+  Node* adjNode;
+
+  int fila, colum, flag = 0;
+
+  for(int i = 0 ; i < 9 ; i++)
+  {
+    for(int j =0 ; j < 9 ; j ++)
+    {
+      if(n->sudo[i][j] == 0)
+      {
+        fila = i;
+        colum = j; 
+        flag = 1;
+        break;
+      }
+    }
+    if(flag ==1) break;
+  }
+
+  if(flag == 0) return list;
+
+  for(int i = 1 ; i < 10 ; i++)\
+  {
+    adjNode = copy(n);
+    adjNode->sudo[fila][colum] = i;
+    if(is_valid(adjNode))
+    {
+      pushBack(list, adjNode);
     }
   }
   
