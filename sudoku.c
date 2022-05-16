@@ -123,10 +123,10 @@ List* get_adj_nodes(Node* n)
           Node *adjNode = copy(n);
           adjNode->sudo[i][j] = k;
           pushBack(list,adjNode);
-          /*if(is_valid(adjNode) == 1)
+          if(is_valid(adjNode))
           {
             pushBack(list, adjNode);
-          } rompe el codigo*/
+          } 
         }
       }
     }
