@@ -138,36 +138,6 @@ List* get_adj_nodes(Node* n)
       pushBack(list, adjNode);
     } 
   }
-  /*Node* adjNode;
-
-  int fila, colum, flag = 0;
-
-  for(int i = 0 ; i < 9 ; i++)
-  {
-    for(int j =0 ; j < 9 ; j ++)
-    {
-      if(n->sudo[i][j] == 0)
-      {
-        fila = i;
-        colum = j; 
-        flag = 1;
-        break;
-      }
-    }
-    if(flag ==1) break;
-  }
-
-  if(flag == 0) return list;
-
-  for(int i = 1 ; i < 10 ; i++)\
-  {
-    adjNode = copy(n);
-    adjNode->sudo[fila][colum] = i;
-    if(is_valid(adjNode))
-    {
-      pushBack(list, adjNode);
-    }
-  }*/
   
   return list;
 }
